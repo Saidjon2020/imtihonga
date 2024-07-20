@@ -17,6 +17,16 @@ class Imtihon2 extends StatefulWidget {
 }
 
 class _Imtihon2State extends State<Imtihon2> {
+  
+  void xato() {
+    if (nomcont == '') {
+      Text(
+        'enter your age',
+        style: TextStyle(color: Colors.red),
+      );
+    }
+  }
+
   final List<String> _imageAssets = [
     'rasmga/1.jpg',
     'rasmga/2.jpg',
@@ -96,6 +106,7 @@ class _Imtihon2State extends State<Imtihon2> {
                   context: context,
                   builder: (context) => AlertDialog(
                     content: TextField(
+                      
                       maxLength: 2,
                       controller: nomcont,
                       keyboardType: TextInputType.number,
@@ -109,6 +120,7 @@ class _Imtihon2State extends State<Imtihon2> {
                     actions: [
                       TextButton(
                         onPressed: () {
+                          xato();
                           nomv();
                           Navigator.pop(context);
                         },
@@ -293,9 +305,20 @@ class _Imtihon2State extends State<Imtihon2> {
                   Column(
                     children: [
                       Stack(children: [
+                        
+                        Positioned(
+                          top:320,
+                          bottom:70,
+                          left: 20,
+                          right: 20,
+                          child: Container(width: 1000,height: 400,
+                            child: Transform(transform: Matrix4.rotationX(5),
+                              child: Lottie.asset('assets/circul1.json',fit: BoxFit.cover)),
+                          ),
+                        ),
                         Positioned(
                           child: Container(
-                            width: 250,
+                            width: 450,
                             height: 400,
                             decoration: BoxDecoration(
                               image: DecorationImage(
@@ -305,14 +328,6 @@ class _Imtihon2State extends State<Imtihon2> {
                               ),
                             ),
                           ),
-                        ),
-                        Positioned(
-                          top: 250,
-                          left: 20,
-                          child: Container(
-                              width: 200,
-                              height: 200,
-                              child: Lottie.asset('assets/circul1.json')),
                         ),
                       ]),
                     ],
